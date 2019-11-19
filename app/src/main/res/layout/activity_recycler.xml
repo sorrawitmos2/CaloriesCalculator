@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#Efeeee"
+    tools:context=".recyclerActivity">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="11dp"
+        android:background="#510a32"
+        android:text="TextView"
+        android:textColor="#510a32"
+        app:layout_constraintBottom_toTopOf="@+id/calories_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/balance_text_view2"
+        android:layout_width="0dp"
+        android:layout_height="67dp"
+        android:background="#510a32"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:fontFamily="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/calories_text_view"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:background="#801336"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/balance_text_view2"
+        app:layout_constraintEnd_toStartOf="@+id/reset_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Today you have 777 Calories" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ledger_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/okokok_button"
+        android:layout_width="75dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="#4AB19D"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:text="@android:string/ok"
+        android:textColor="#FFFEFE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/balance_text_view2"
+        app:layout_constraintEnd_toEndOf="@+id/balance_text_view2"
+        app:layout_constraintTop_toTopOf="@+id/balance_text_view2" />
+
+    <EditText
+        android:id="@+id/food_editText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:background="#00FFFFFF"
+        android:ems="10"
+        android:hint="What you eat ?"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#8AFFFFFF"
+        android:textColorLink="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/okokok_button"
+        app:layout_constraintEnd_toStartOf="@+id/okokok_button"
+        app:layout_constraintStart_toStartOf="@+id/balance_text_view2"
+        app:layout_constraintTop_toTopOf="@+id/okokok_button" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="83dp"
+        android:layout_height="43dp"
+        android:background="#EF3D59"
+        android:text="Reset"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/balance_text_view2"
+        app:layout_constraintEnd_toEndOf="@+id/balance_text_view2"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="11dp"
+        android:background="#510a32"
+        android:text="TextView"
+        android:textColor="#510a32"
+        app:layout_constraintBottom_toTopOf="@+id/calories_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
