@@ -1,8 +1,10 @@
 package com.example.caloriescalculator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 
 import com.example.caloriescalculator.db_account.DatabaseHelper2;
+import com.example.caloriescalculator.room_db.FoodRepository;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -104,5 +107,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
-// male int BMR = (int) (66 + (13.7 * inputWeight) + (5 * inputHeight) - (6.8 * inputAge));
-//female int BMR = (int) (665 + (9.6 * inputWeight) + (1.8 * inputHeight) - (4.7 * inputAge));
+

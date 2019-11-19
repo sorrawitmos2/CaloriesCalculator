@@ -43,29 +43,8 @@ public class recyclerActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         mCalories = intent.getStringExtra("cal");
-//        Log.v("cal",mCalories);
 
-        dbHelper = new DatabaseHelper(this);
-        foodDB = dbHelper.getWritableDatabase();
-
-        mCursor = foodDB.rawQuery("SELECT " + DatabaseHelper.COL_NAME+", "+DatabaseHelper.COL_CALORIES+" FROM " + DatabaseHelper.TABLE_FOOD, null);
-
-        mCursor.moveToFirst();
-        food fd ;
-
-        while(!mCursor.isAfterLast()){
-            fd = new food(0,mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_NAME)),mCursor.getInt(Integer.valueOf(mCursor.getColumnIndex(DatabaseHelper.COL_CALORIES))));
-            mFood.add(fd);
-            mCursor.moveToNext();
-        }
-
-
-
-        //LOG
-        Log.v("list","###LIST_FOOD###");
-        for(food f :mFood){
-            Log.v("DATA", f.name+" "+f.cal);
-        }
+        reloadFood();
 
 
         //Reset Button
@@ -129,11 +108,33 @@ public class recyclerActivity extends AppCompatActivity {
         });
     }
 
+    private void reloadFood(){
+        dbHelper = new DatabaseHelper(this);
+        foodDB = dbHelper.getWritableDatabase();
+
+        mCursor = foodDB.rawQuery("SELECT " + DatabaseHelper.COL_NAME+", "+DatabaseHelper.COL_CALORIES+" FROM " + DatabaseHelper.TABLE_FOOD, null);
+
+        mCursor.moveToFirst();
+        food fd ;
+
+        while(!mCursor.isAfterLast()){
+            fd = new food(0,mCursor.getString(mCursor.getColumnIndex(DatabaseHelper.COL_NAME)),mCursor.getInt(Integer.valueOf(mCursor.getColumnIndex(DatabaseHelper.COL_CALORIES))));
+            mFood.add(fd);
+            mCursor.moveToNext();
+        }
+
+        //LOG
+        Log.v("list","###LIST_FOOD###");
+        for(food f :mFood){
+            Log.v("DATA", f.name+" "+f.cal);
+        }
+    }
+
     @Override
     protected void onResume(){
         super.onResume();
+        reloadFood();
         reloadData();
-
     }
 
     private void reloadData(){
@@ -157,6 +158,7 @@ public class recyclerActivity extends AppCompatActivity {
                             .show();
                     totalCal = 0;
                 }
+
                 TextView CaloriesTextView = findViewById(R.id.calories_text_view);
                 CaloriesTextView.setText("Today you have "+ totalCal +" KiloCalories");
                 RecyclerView recyclerView = findViewById(R.id.ledger_recyclerview);
@@ -170,4 +172,6 @@ public class recyclerActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
